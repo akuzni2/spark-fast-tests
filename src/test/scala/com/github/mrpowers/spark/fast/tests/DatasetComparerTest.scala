@@ -349,6 +349,27 @@ class DatasetComparerTest extends FreeSpec with DatasetComparer with SparkSessio
       }
     }
 
+    //    "works if Datasets have different order of columns" in {
+    //      val sourceDS = spark.createDataset[Person](
+    //        Seq(
+    //          Person("Alice", 12),
+    //          Person("Bob", 17)
+    //        )
+    //      )
+    //
+    //      val reOrderedSourceDS = sourceDS.select("age","name").as[Person]
+    //
+    //      val expectedDS = spark.createDataset[Person](
+    //        Seq(
+    //          Person("Alice", 12),
+    //          Person("Bob", 17)
+    //        )
+    //      )
+    //
+    //      assertSmallDatasetEquality(reOrderedSourceDS, expectedDS)
+    //      assertLargeDatasetEquality(reOrderedSourceDS, expectedDS)
+    //    }
+
     "throws an error DataFrames have a different number of rows" in {
       val sourceDF = spark.createDF(
         List(
